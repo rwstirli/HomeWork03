@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2>
+  <%= @physician.name %>
+  </h2>
+</p>
+
+<p>
+  <strong>Specialty:
+  <%= @physician.specialty %>
+  </strong>
+</p>
+
+<hr>
+
+<h3>Office Locations</h3>
+
+
+  <table id="table-css">
+    <thead>
+      <tr>
+        <th id="thcss">Street Address</th>
+        <th id="thcss">Zip Code</th>
+        <th id="thcss">Phone Number</th>
+      </tr>
+     </thead>
+
+     <tbody id="tbodycss">
+     <% @physician.offices.each do |office| %>
+        <tr> 
+          <td id="tdcss"><%= office.street_address %></td> 
+          <td id="tdcss"><%= office.zip %></td> 
+          <td id="tdcss"><%= office.phone %></td> 
+        </tr>
+       <% end %> 
+    </tbody>
+  </table>
+
+<br>
+
+<h3>Current Appointments</h3>
+
+  <table id="table-css">
+    <thead>
+      <tr>
+        <th id="thcss">Patient Name</th>
+        <th id="thcss">Date of Appointment</th>
+      </tr>
+     </thead>
+
+     <tbody id="tbodycss">
+     <% @physician.appointments.each do |appointment| %>
+        <tr>
+          <td id="tdcss"><%= appointment.patient.name %></td> 
+          <td id="tdcss"><%= appointment.visit %></td> 
+        </tr>
+       <% end %> 
+    </tbody>
+  </table>
+  <br>
+
+<%= link_to 'Edit', edit_physician_path(@physician) %> |
+<%= link_to 'Back', physicians_path %>
