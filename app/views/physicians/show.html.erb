@@ -53,7 +53,7 @@
      <% @physician.appointments.each do |appointment| %>
         <tr>
           <td id="tdcss"><%= appointment.patient.name %></td> 
-          <td id="tdcss"><%= appointment.visit %></td> 
+          <td id="tdcss"><%= appointment.visit.to_formatted_s(:long_ordinal)  %></td> 
         </tr>
        <% end %> 
     </tbody>
